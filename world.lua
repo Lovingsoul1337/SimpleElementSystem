@@ -1,23 +1,22 @@
 local systemmanager = require('systemmanager')
-local forcesystem = require('forcesystem')
 
-world = {}
+
+local world = {}
 world.__index = world
 
 function world.new()
   local self = {}
-  self.entityList = {}
   setmetatable(self, world)
+  self.entityList = {}
   return self
 end
 
 function world:update(dt)
+  systemmanager:update(self.entityList[1], dt)
 end
 
-function world:addSystem()
-end
-
-function world:addEntity()
+function world:createEntity(entity)
+  table.insert(self.entityList, entity)
 end
 
 function world:draw()
