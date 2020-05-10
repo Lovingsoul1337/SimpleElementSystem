@@ -1,6 +1,5 @@
 local systemmanager = require('systemmanager')
 
-
 local world = {}
 world.__index = world
 
@@ -20,6 +19,7 @@ function world:createEntity(entity)
 end
 
 function world:draw()
+  systemmanager:draw(entity)
 end
 
 return world

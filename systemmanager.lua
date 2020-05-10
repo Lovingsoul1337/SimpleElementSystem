@@ -4,10 +4,11 @@ local systemmanager = {}
 systemmanager.systems = littlehelper.requireSystems()
 
 function systemmanager:update(entity, dt)
-
   for k1, v1 in pairs(systemmanager.systems) do
     for k2, v2 in pairs(systemmanager.systems[k1].requiredElements) do
       if checkEntity(entity, systemmanager.systems[k1]) then
+        print("Inside System Manager:")
+        print(#systemmanager.systems[k1].requiredElements)
         v1:update(entity, dt)
       end
     end
@@ -21,6 +22,9 @@ function checkEntity(entity, requiredComponents)
     end
   end
     return true
+end
+
+function systemmanager:draw(entity)
 end
 
 return systemmanager
