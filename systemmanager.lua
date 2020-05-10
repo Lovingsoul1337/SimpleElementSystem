@@ -39,7 +39,7 @@ end
 
 function systemmanager:draw(entity)
   for i = 1, #systemmanager.drawingQueue do
-    systemmanager.drawsystem:update(systemmanager.drawingQueue[i])
+    drawsystem:update(systemmanager.drawingQueue[i])
   end
   systemmanager.drawingQueue = {}
 end
