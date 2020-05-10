@@ -9,7 +9,6 @@ function systemmanager:update(entity, dt)
 
   if systemmanager.checkIfDrawable(entity) then
     table.insert(systemmanager.drawingQueue, entity)
-    print("Queue: " .. #systemmanager.drawingQueue)
   end
 
   for k1, v1 in pairs(systemmanager.systems) do

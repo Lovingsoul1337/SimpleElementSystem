@@ -19,7 +19,6 @@ end
 
 function world:createEntity(entity)
   table.insert(self.entityList, entity)
-  print("Count:" .. #self.entityList)
 end
 
 function world:draw()
