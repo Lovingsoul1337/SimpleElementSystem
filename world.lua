@@ -22,7 +22,7 @@ function world:createEntity(entity)
 end
 
 function world:draw()
-  systemmanager:draw(entity)
+  systemmanager:draw()
 end
 
 return world
