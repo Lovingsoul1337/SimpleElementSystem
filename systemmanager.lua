@@ -1,21 +1,25 @@
 local littlehelper = require('Support.littlehelper')
+local drawsystem = require('Drawing.drawsystem')
 
 local systemmanager = {}
 systemmanager.systems = littlehelper.requireSystems()
+systemmanager.drawingQueue = {}
 
 function systemmanager:update(entity, dt)
+
+  if systemmanager.checkIfDrawable(entity) then
+    print("Queue: " .. #systemmanager.drawingQueue)
+    table.insert(systemmanager.drawingQueue, entity)
+  end
+
   for k1, v1 in pairs(systemmanager.systems) do
-    for k2, v2 in pairs(systemmanager.systems[k1].requiredElements) do
-      if checkEntity(entity, systemmanager.systems[k1]) then
-        print("Inside System Manager:")
-        print(#systemmanager.systems[k1].requiredElements)
-        v1:update(entity, dt)
-      end
+    if systemmanager.checkEntity(entity, systemmanager.systems[k1]) then
+      v1:update(entity, dt)
     end
   end
 end
 
-function checkEntity(entity, requiredComponents)
+function systemmanager.checkEntity(entity, requiredComponents)
   for key, component in ipairs(requiredComponents) do
     if not entity[key] then
       return false
@@ -24,7 +28,21 @@ function checkEntity(entity, requiredComponents)
     return true
 end
 
+function systemmanager.checkIfDrawable(entity)
+  for k, v in pairs(entity) do
+    if k == "image" then
+      return true
+    else
+      return false
+    end
+   end
+end
+
 function systemmanager:draw(entity)
+  for i = 1, #systemmanager.drawingQueue do
+    drawsystem:update(systemmanager.drawingQueue[i])
+    table.remove(systemmanager.drawingQueue, i)
+  end
 end
 
 return systemmanager
