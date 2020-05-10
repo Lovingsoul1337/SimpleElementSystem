@@ -38,7 +38,7 @@ function systemmanager.checkIfDrawable(entity)
 end
 
 function systemmanager:draw(entity)
-  for i = 1, #systemmanager.drawingQueue  do
+  for i = 1, #systemmanager.drawingQueue do
     drawsystem:update(systemmanager.drawingQueue[i])
   end
   systemmanager.drawingQueue = {}
