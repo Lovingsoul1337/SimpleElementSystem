@@ -6,11 +6,17 @@ My idea behind the libary was that you can with a few lines of code achieve resu
 First download the lib on --> https://github.com/Lovingsoul1337/SimpleElementSystem
 
 second require the lib
+
 third drop a system in the system folder
+
 fourth drop a draw system in the drawing folder(premade)
+
 fifth create a world in main
+
 six create a entity in main
+
 seven call world:update() in love.update() --dont forget to pass dt :)
+
 eight call world:draw in love.draw()
 
 see the magic happens :)
