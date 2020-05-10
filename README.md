@@ -1,44 +1,27 @@
 # SimpleElementSystem !
- My first libary where you can add a world, systems, and elements who work directly together !
- 
- ```lua
-local world = require('world') --just require a world and drop your systems inside the systems folder
+My first libary where you can add a world, systems, and elements who work directly together !
 
-function love.load()
+My idea behind the libary was that you can with a few lines of code achieve results so im here with my 8 step system(actually i just did see you can have even less :))
 
-  world = world:new()   --create a new instance of world
-  world:createEntity({  --second add a entity including values !
-   name = "Hero",
-   health = "37",
-   maxHealth = "100",
-   image = love.graphics.newImage('Assets/Images/rectangle_ninja.png'), --if you want it to be drawed add a image and position value !
-   position = {x = 88, y = 88}})
+First download the lib on --> https://github.com/Lovingsoul1337/SimpleElementSystem
 
-   world:createEntity({  --second add a entity including values !
-    name = "Fero",
-    health = "77",
-    maxHealth = "100",
-    image = love.graphics.newImage('Assets/Images/rectangle_ninja.png'), --if you want it to be drawed add a image and position value !
-    position = {x = 188, y = 188}})
+-second require the lib
+-third drop a system in the system folder
+-fourth drop a draw system in the drawing folder(premade)
+-fifth create a world in main
+-six create a entity in main
+-seven call world:update() in love.update() --dont forget to pass dt :)
+-eight call world:draw in love.draw()
 
-    world:createEntity({  --second add a entity including values !
-     name = "Nice",
-     health = "88",
-     maxHealth = "100",
-     image = love.graphics.newImage('Assets/Images/rectangle_ninja.png'), --if you want it to be drawed add a image and position value !
-     position = {x = 288, y = 288}})
-end
+see the magic happens :)
 
-function love.update(dt)
-  world:update(dt) --next update world
-end
+If you have questions or some ideas just ask me and i try answering it !
 
-function love.draw()
-  world:draw() -- see the magic happens !
-end
-
-```
-
-many thanks to the love2d Discord --> https://discord.gg/4Z2ZH2R
+best regards
 
 Michael
+
+Disclamer:
+
+Since this is my first lib dont expect too much its more for beginners that want see fast results and not for big projects !
+ps. rectangle_ninja.png is self made you can use it everyhwere you want ! :ultraglee:
