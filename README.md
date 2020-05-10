@@ -39,4 +39,6 @@ end
 
 ```
 
-mans thanks to the love2d Discord ! --> https://discord.gg/4Z2ZH2R
+many thanks to the love2d Discord --> https://discord.gg/4Z2ZH2R
+
+Michael
