@@ -12,7 +12,9 @@ function world.new()
 end
 
 function world:update(dt)
-    systemmanager:update(self.entityList[1], dt)
+  for i = 1, #self.entityList do
+    systemmanager:update(self.entityList[i], dt)
+  end
 end
 
 function world:createEntity(entity)

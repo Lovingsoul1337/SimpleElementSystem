@@ -8,8 +8,8 @@ systemmanager.drawingQueue = {}
 function systemmanager:update(entity, dt)
 
   if systemmanager.checkIfDrawable(entity) then
-    print("Queue: " .. #systemmanager.drawingQueue)
     table.insert(systemmanager.drawingQueue, entity)
+    print("Queue: " .. #systemmanager.drawingQueue)
   end
 
   for k1, v1 in pairs(systemmanager.systems) do
@@ -39,10 +39,10 @@ function systemmanager.checkIfDrawable(entity)
 end
 
 function systemmanager:draw(entity)
-  for i = 1, #systemmanager.drawingQueue do
+  for i = 1, #systemmanager.drawingQueue  do
     drawsystem:update(systemmanager.drawingQueue[i])
-    table.remove(systemmanager.drawingQueue, i)
   end
+  systemmanager.drawingQueue = {}
 end
 
 return systemmanager
